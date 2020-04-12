@@ -17,54 +17,54 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['systemadmin']], function(){
     Route::get('/admin', [
         'uses' => 'SystemAdminController@index',
         'as' => 'admin.index'
     ]);
-})->name('systemadmin')->middleware('systemadmin');
+});
 
-Route::group(['prefix' => 'doctor'], function(){
+Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
     Route::get('/doctor', [
         'uses' => 'DoctorController@index',
         'as' => 'doctor.index'
     ]);
-})->name('doctor')->middleware('doctor');
+});
 
-Route::group(['prefix' => 'nurse'], function(){
+Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
     Route::get('/nurse', [
         'uses' => 'NurseController@index',
         'as' => 'nurse.index'
     ]);
-})->name('nurse')->middleware('nurse');
+});
 
-Route::group(['prefix' => 'receptionist'], function(){
+Route::group(['prefix' => 'receptionist', 'middleware' => ['receptionist']], function(){
     Route::get('/receptionist', [
         'uses' => 'ReceptionistController@index',
         'as' => 'receptionist.index'
     ]);
-})->name('receptionist')->middleware('receptionist');
+});
 
-Route::group(['prefix' => 'pharmacist'], function(){
+Route::group(['prefix' => 'pharmacist', 'middleware' => 'pharmacist'], function(){
     Route::get('/pharmacist', [
         'uses' => 'PharmacistController@index',
         'as' => 'pharmacist.index'
     ]);
-})->name('pharmacist')->middleware('pharmacist');
+});
 
-Route::group(['prefix' => 'laboratory'], function(){
+Route::group(['prefix' => 'laboratory', 'middleware' => ['laboratory']], function(){
     Route::get('/laboratory', [
         'uses' => 'LaboratoryController@index',
         'as' => 'laboratory.index'
     ]);
-})->name('laboratory')->middleware('laboratory');
+});
 
-Route::group(['prefix' => 'patient'], function(){
+Route::group(['prefix' => 'patient', 'middleware' => ['patient']], function(){
     Route::get('/patient', [
         'uses' => 'PatientController@index',
         'as' => 'patient.index'
     ]);
-})->name('patient')->middleware('patient');
+});
 
 
 
