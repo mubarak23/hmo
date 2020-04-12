@@ -66,6 +66,9 @@ Route::group(['prefix' => 'patient', 'middleware' => ['patient']], function(){
     ]);
 });
 
+Route::get('/signin', 'SignupController@index');
+Route::get('/signup', 'SigninController@index');
+
 
 
 
