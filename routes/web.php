@@ -22,49 +22,49 @@ Route::group(['prefix' => 'admin'], function(){
         'uses' => 'SystemAdminController@index',
         'as' => 'admin.index'
     ]);
-})->middleware('systemadmin');
+})->name('systemadmin')->middleware('systemadmin');
 
 Route::group(['prefix' => 'doctor'], function(){
     Route::get('/doctor', [
         'uses' => 'DoctorController@index',
         'as' => 'doctor.index'
     ]);
-})->middleware('doctor');
+})->name('doctor')->middleware('doctor');
 
 Route::group(['prefix' => 'nurse'], function(){
-    Route::get('/admin', [
+    Route::get('/nurse', [
         'uses' => 'NurseController@index',
         'as' => 'nurse.index'
     ]);
-})->middleware('nurse');
+})->name('nurse')->middleware('nurse');
 
 Route::group(['prefix' => 'receptionist'], function(){
-    Route::get('/admin', [
+    Route::get('/receptionist', [
         'uses' => 'ReceptionistController@index',
         'as' => 'receptionist.index'
     ]);
-})->middleware('receptionist');
+})->name('receptionist')->middleware('receptionist');
 
 Route::group(['prefix' => 'pharmacist'], function(){
-    Route::get('/admin', [
+    Route::get('/pharmacist', [
         'uses' => 'PharmacistController@index',
         'as' => 'pharmacist.index'
     ]);
-})->middleware('pharmacist');
+})->name('pharmacist')->middleware('pharmacist');
 
 Route::group(['prefix' => 'laboratory'], function(){
-    Route::get('/admin', [
+    Route::get('/laboratory', [
         'uses' => 'LaboratoryController@index',
         'as' => 'laboratory.index'
     ]);
-})->middleware('laboratory');
+})->name('laboratory')->middleware('laboratory');
 
 Route::group(['prefix' => 'patient'], function(){
-    Route::get('/admin', [
+    Route::get('/patient', [
         'uses' => 'PatientController@index',
         'as' => 'patient.index'
     ]);
-})->middleware('patient');
+})->name('patient')->middleware('patient');
 
 
 
