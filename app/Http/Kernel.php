@@ -61,6 +61,15 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        //user roles middleware in the system
+        'systemadmin' => \App\Http\Middleware\SystemAdmin::class,
+        'doctor' => \App\Http\Middleware\Doctor::class,
+        'laboratory' => \App\Http\Middleware\Laboaratory::class,
+        'nurse' => \App\Http\Middleware\Nurse::class,
+        'patient' => \App\Http\Middleware\Patient::class,
+        'pharmacist' => \App\Http\Middleware\Pharmacist::class,
+        'receptionist' => \App\Http\Middleware\Receptionist::class,
     ];
 
     /**
