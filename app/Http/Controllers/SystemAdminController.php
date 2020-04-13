@@ -15,7 +15,7 @@ class SystemAdminController extends Controller
     public function index()
     {
         //
-        dd('This is system home');
+        return view('dashboard.main');
     }
 
     /**
