@@ -66,6 +66,20 @@ Route::group(['prefix' => 'patient', 'middleware' => ['patient']], function(){
     ]);
 });
 
+Route::group(['prefix' => 'appointment', 'middleware' => ['systemadmin', 'nurse', 'doctor']], function(){
+    Route::get('/', [
+        'uses' => 'AppointmentController@index',
+        'as' => 'appointment.index'
+    ]);
+
+    Route::post('/', [
+        'uses' => 'AppointmentController@index',
+        'as'   => 'appointment.post'
+    ]);
+    
+});
+
+
 Route::get('/signin', 'SigninController@index');
 Route::get('/signup', 'SignupController@index');
 
