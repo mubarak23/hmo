@@ -18,7 +18,6 @@
   <!-- JQVMap -->
   <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  
   <link rel="stylesheet" href="{{ URL::to('css/AdminLTE.min.css') }}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
