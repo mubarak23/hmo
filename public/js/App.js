@@ -49917,6 +49917,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/less/dropdown.less":
+/*!**************************************!*\
+  !*** ./resources/less/dropdown.less ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/less-loader/dist/cjs.js):\n\r\n\r\n.dropdown-menu {\r\n    box-shadow: @box-boxshadow;\r\n              ^\r\nVariable @box-boxshadow is undefined\r\n      in C:\\Users\\User\\Desktop\\Dev project\\hmo\\resources\\less\\dropdown.less (line 8, column 16)\n    at C:\\Users\\User\\Desktop\\Dev project\\hmo\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\Users\\User\\Desktop\\Dev project\\hmo\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\Users\\User\\Desktop\\Dev project\\hmo\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\Users\\User\\Desktop\\Dev project\\hmo\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at processTicksAndRejections (internal/process/task_queues.js:89:5)");
+
+/***/ }),
+
+/***/ "./resources/less/header.less":
+/*!************************************!*\
+  !*** ./resources/less/header.less ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/less-loader/dist/cjs.js):\n\r\n\r\n      margin-bottom: 0;\r\n      margin-left: @sidebar-width;\r\n                 ^\r\nVariable @sidebar-width is undefined\r\n      in C:\\Users\\User\\Desktop\\Dev project\\hmo\\resources\\less\\header.less (line 13, column 19)\n    at C:\\Users\\User\\Desktop\\Dev project\\hmo\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\Users\\User\\Desktop\\Dev project\\hmo\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\Users\\User\\Desktop\\Dev project\\hmo\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\Users\\User\\Desktop\\Dev project\\hmo\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at processTicksAndRejections (internal/process/task_queues.js:89:5)");
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49929,13 +49951,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!*************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/less/header.less ./resources/less/dropdown.less ./resources/sass/app.scss ***!
+  \*************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\User\Desktop\Dev project\hmo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\User\Desktop\Dev project\hmo\resources\less\header.less */"./resources/less/header.less");
+__webpack_require__(/*! C:\Users\User\Desktop\Dev project\hmo\resources\less\dropdown.less */"./resources/less/dropdown.less");
 module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Dev project\hmo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 

@@ -3,71 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>AdminLTE 3 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" 
-   href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-   crossorigin="anonymous"">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
-  <link rel="stylesheet" 
-  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ URL::to('css/all.mini.css') }}">
   <!-- Ionicons -->
-  
-  <link rel="stylesheet" 
-  href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/collection/components/icon/icon.min.css">
-  
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="{{ URL::to('css/bootstrap-4.min.css') }}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="{{ URL::to('css/iCheck.min.css') }}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   
   <link rel="stylesheet" href="{{ URL::to('css/AdminLTE.min.css') }}">
-  <!-- iCheck -->
- 
-  <link rel="stylesheet" href="{{ URL::to('css/blue.css') }}">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-<style>
-    .color-palette {
-      height: 35px;
-      line-height: 35px;
-      text-align: center;
-    }
-
-    .color-palette-set {
-      margin-bottom: 15px;
-    }
-
-    .color-palette span {
-      display: none;
-      font-size: 12px;
-    }
-
-    .color-palette:hover span {
-      display: block;
-    }
-
-    .color-palette-box h4 {
-      position: absolute;
-      top: 100%;
-      left: 25px;
-      margin-top: -40px;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 12px;
-      display: block;
-      z-index: 7;
-    }
-  </style>
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 @include('partials.header')
@@ -77,7 +40,7 @@
 
 @include('partials.footer')
 
-@include('partials.aside')
+
 <!-- /.control-sidebar -->
   <!-- Add the sidebars background. This div must be placed
        immediately after the control sidebar -->
