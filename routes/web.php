@@ -60,9 +60,13 @@ Route::group(['prefix' => 'laboratory', 'middleware' => ['laboratory']], functio
 });
 
 Route::group(['prefix' => 'patient', 'middleware' => ['patient']], function(){
-    Route::get('/patient', [
+    Route::get('/', [
         'uses' => 'PatientController@index',
         'as' => 'patient.index'
+    ]);
+    Route::get('/patient', [
+        'uses' => 'PatientController@create',
+        'as' => 'patient.create'
     ]);
 });
 
