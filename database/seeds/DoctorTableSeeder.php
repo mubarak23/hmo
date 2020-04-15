@@ -17,7 +17,6 @@ class DoctorTableSeeder extends Seeder
             'specialist' => 'Ear and Brain',
             'office_no' => '5',
             'consultation_hours' => '4hrs',
-
         ]);
         $doctor->save();
     }

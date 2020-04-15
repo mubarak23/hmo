@@ -21,7 +21,7 @@ class CreatePatientTable extends Migration
             $table->string('profile_pic')->nullable();
             $table->string('gender');
             $table->string('blood_group');
-            $table->data('date_birth');
+            $table->date('date_birth');
             $table->string('phone_number');
             $table->string('email')->nullable();
             $table->string('address');

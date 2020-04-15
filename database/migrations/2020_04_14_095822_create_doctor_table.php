@@ -13,7 +13,7 @@ class CreateDoctorTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor', function (Blueprint $table) {
+        Schema::create('doctors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('specialist');

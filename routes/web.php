@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => ['systemadmin']], function(){
-    Route::get('/systemadmin', [
+    Route::get('', [
         'uses' => 'SystemAdminController@index',
         'as' => 'admin.index'
     ]);

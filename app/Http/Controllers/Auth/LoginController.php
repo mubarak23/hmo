@@ -31,9 +31,10 @@ class LoginController extends Controller
     protected $redirectTo;
     public function redirectTo()
     {
-        switch(Auth::user()->role){
+        switch(Auth::user()->user_roles_id){
             case 1:
-            $this->redirectTo = '/admin/systemadmin';
+                //dd(Auth::user()->user_roles_id);
+            $this->redirectTo = '/admin';
             return $this->redirectTo;
                 break;
             case 2:
