@@ -34,6 +34,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            @if(Auth::user()->user_roles_id == 1)
               <li class="nav-item">
                 <a href="./index.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
@@ -127,8 +128,10 @@
               </p>
             </a>
             </li>  
+            @endif
 
   <!-- /.doctors sidebar -->
+          @if(Auth::user()->user_roles_id == 2)
             <li class="header">Doctoss Sidebar</li>
            <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -181,7 +184,9 @@
                   <p>Appiontments</p>
                 </a>
               </li>
+              @endif
 
+              @if(Auth::user()->user_roles_id == 3)
 
               <li class="header">Nurse Sidebar</li>
            <li class="nav-item has-treeview">
@@ -228,8 +233,7 @@
               </p>
             </a>
             </li>
-
-
+            @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
