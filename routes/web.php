@@ -25,14 +25,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['systemadmin']], function(){
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
-    Route::get('/doctor', [
+    Route::get('/', [
         'uses' => 'DoctorController@index',
         'as' => 'doctor.index'
     ]);
 });
 
 Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
-    Route::get('/nurse', [
+    Route::get('/', [
         'uses' => 'NurseController@index',
         'as' => 'nurse.index'
     ]);

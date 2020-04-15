@@ -15,6 +15,7 @@ class DoctorController extends Controller
     public function index()
     {
         //
+        return view('dashboard.main_doctor');
     }
 
     /**
