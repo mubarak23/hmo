@@ -194,7 +194,7 @@
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Notification from Doctor
-                <i class="fas fa-angle-left right"></i>
+                
               </p>
             </a>
           </li>
@@ -229,7 +229,7 @@
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Admission of Patients
-                <i class="fas fa-angle-left right"></i>
+                
               </p>
             </a>
             </li>
