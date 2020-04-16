@@ -17,15 +17,14 @@ class NurseController extends Controller
         //
         return view('dashboard.main_nurse');
     }
-
-    /**
+/**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    
+    public function create(){
+        return view('dashboard.nurse.register_patient');
     }
 
     /**

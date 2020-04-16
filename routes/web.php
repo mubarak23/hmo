@@ -36,6 +36,12 @@ Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
         'uses' => 'NurseController@index',
         'as' => 'nurse.index'
     ]);
+
+    Route::get('/create', [
+        'uses' => 'NurseController@create',
+        'as' => 'nurse.create'
+    ]); 
+
 });
 
 Route::group(['prefix' => 'receptionist', 'middleware' => ['receptionist']], function(){

@@ -30,7 +30,7 @@
           <!-- /.col -->
 
             <!-- left column -->
-          <div class="col-md-6">
+          <div class="col-md-6 col-offset-3">
             <!-- Register Patient Form -->
             <div class="card card-primary">
               <div class="card-header">
@@ -74,6 +74,7 @@
 
                   <div class="form-group clearfix">
                       <div class="icheck-primary d-inline">
+                      <label>Select Gender: </label>
                         <input type="radio" id="male" name="gender" >
                         <label for="radioPrimary1">
                         Male
@@ -89,6 +90,7 @@
 
                     <div class="form-group clearfix">
                       <div class="icheck-primary d-inline">
+                      <label>Select Blood Group:</label>
                         <input type="radio" id="blood_group" name="blood_group" >
                         <label for="blood group">
                         A
