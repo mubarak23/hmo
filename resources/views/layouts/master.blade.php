@@ -44,7 +44,13 @@
 <div class="wrapper">
 @include('partials.header')
 @include('partials.sidebar')
-
+@if(Session::has('success'))
+        <div class="row">
+            <div class="col-md-12">
+                <p class="alert alert-info">{{ Session::get('success') }}</p>
+            </div>
+        </div>
+    @endif
 @yield('content')
 
 @include('partials.footer')

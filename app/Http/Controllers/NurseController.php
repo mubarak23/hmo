@@ -36,6 +36,33 @@ class NurseController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($requeest, [
+            "first_name" => "required",
+            "last_name" => "required",
+            "gender" => "gender",
+            "blood_group" => "required",
+            "profile_pic" =>'required|mimes:jpeg,png,jpg,bmp|max:2048',
+            "date_birth" => "required",
+            "phone_number" => "required",
+            "email"     => "required",
+            "address" => "required",
+            "status" => "required"
+        ]);
+        if($file = $request->file('profile_pic')){
+            $name = time().time(). '.'.$file->getClientOriginalExtension();
+            $target_path = public_path('/uploads');
+            if($file->move($target_path, $name)){
+                $data = $request->all();
+                $data['profile_pic'] = $name;
+                $create_patient = Nurse::create($data);
+                return redirect()->route('nurse.index')->with('success', 'Patient Successfully Registered');
+
+            }
+        }
+        $data = $request->all();
+        $create_patient= Nurse::create($data);
+        return redirect()->route('nurse.index')->with('success', 'Patient Successfully Registered');
+
     }
 
     /**
