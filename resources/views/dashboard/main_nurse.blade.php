@@ -86,5 +86,10 @@
           </div>
           <!-- /.col -->
         </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        </div>
+      </div>
+      </section>
         
         @endsection

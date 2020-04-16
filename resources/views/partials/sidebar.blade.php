@@ -229,7 +229,6 @@
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Admission of Patients
-                
               </p>
             </a>
             </li>
