@@ -13,6 +13,7 @@ class DoctorTableSeeder extends Seeder
     {
         //
         $doctor = new \App\Doctor([
+            'user_id' => '4',
             'name' => 'Lukman Idris',
             'specialist' => 'Ear and Brain',
             'office_no' => '5',

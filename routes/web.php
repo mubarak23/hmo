@@ -95,8 +95,23 @@ Route::group(['prefix' => 'appointment', 'middleware' => ['systemadmin', 'nurse'
 });
 
 
-Route::get('/signin', 'SigninController@index');
-Route::get('/signup', 'SignupController@index');
+Route::get('/signin', [
+   'uses' => 'SigninController@index',
+   'as' => 'auth.signin'
+]);
+
+
+ Route::get('/signup', [
+    'uses' => 'SignupController@index',
+    'as' => 'auth.signup'
+ ]);
+
+ Route::post('/auth-signup', [
+    'uses' => 'SignupController@create_account',
+    'as' => 'auth.signup'
+ ]);
+
+//Route::get('/signup', 'SignupController@index');
 
 
 
