@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
+    protected $fillable = ['first_name', 'last_name', 'middlename', 'gender', 
+    'date_birth', 'gender', 'profile_pic', 'blood_group', 'email', 'phone_number', 'status', 'address'];
     //
     public function appointment(){
         return $this->hasMany('App\Appointment', 'patient_id');

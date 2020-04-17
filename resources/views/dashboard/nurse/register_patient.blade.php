@@ -38,24 +38,24 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" action="{{ route('nurse.store') }}" method="post" >
                 <div class="card-body">
 
                   <div class="form-group">
                     <label for="first_name">First Name</label>
-                    <input type="email" class="form-control" 
+                    <input type="text" class="form-control" 
                     id="first_name" name="first_name" placeholder="Enter First Name">
                   </div>
 
                   <div class="form-group">
                     <label for="last_name">Last Name</label>
-                    <input type="password" name="last_name" class="form-control" 
+                    <input type="text" name="last_name" class="form-control" 
                      id="last_name" placeholder=" Last Name">
                   </div>
 
                   <div class="form-group">
-                    <label for="middlename">Last Name</label>
-                    <input type="password" name="middlename" class="form-control" 
+                    <label for="middlename">Middle Name</label>
+                    <input type="text" name="middle_name" class="form-control" 
                      id="middlename" placeholder="Middle Name">
                   </div>
 
@@ -75,13 +75,13 @@
                   <div class="form-group clearfix">
                       <div class="icheck-primary d-inline">
                       <label>Select Gender: </label>
-                        <input type="radio" id="male" name="gender" >
+                        <input type="radio" id="male" name="gender" value="male" >
                         <label for="radioPrimary1">
                         Male
                         </label>
                       </div>
                       <div class="icheck-primary d-inline">
-                        <input type="radio" id="female" name="gender">
+                        <input type="radio" id="female" name="gender" value="female">
                         <label for="radioPrimary2">
                         Female
                         </label>
@@ -91,19 +91,19 @@
                     <div class="form-group clearfix">
                       <div class="icheck-primary d-inline">
                       <label>Select Blood Group:</label>
-                        <input type="radio" id="blood_group" name="blood_group" >
+                        <input type="radio" id="blood_group" name="blood_group" value="A" >
                         <label for="blood group">
                         A
                         </label>
                       </div>
                       <div class="icheck-primary d-inline">
-                        <input type="radio" id="blood_group" name="blood_group">
+                        <input type="radio" id="blood_group" name="blood_group" value="0">
                         <label for="Blood Group">
                         0
                         </label>
                       </div>
                       <div class="icheck-primary d-inline">
-                        <input type="radio" id="blood_group" name="blood_group" >
+                        <input type="radio" id="blood_group" name="blood_group" value="0+" >
                         <label for="Blood Group">
                           0+
                         </label>
@@ -112,7 +112,7 @@
 
 
                 <div class="form-group">
-                  <label>Date masks:</label>
+                  <label>Date of Birth:</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -144,6 +144,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
+                {{ csrf_field() }}
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
 

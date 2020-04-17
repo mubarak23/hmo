@@ -40,17 +40,18 @@ class NurseController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($requeest, [
+
+        //dd($request->all());
+        $this->validate($request, [
             "first_name" => "required",
             "last_name" => "required",
-            "gender" => "gender",
+            "gender" => "required",
             "blood_group" => "required",
-            "profile_pic" =>'required|mimes:jpeg,png,jpg,bmp|max:2048',
+           //"profile_pic" =>'required|mimes:jpeg,png,jpg,bmp|max:2048',
             "date_birth" => "required",
             "phone_number" => "required",
             "email"     => "required",
             "address" => "required",
-            "status" => "required"
         ]);
         if($file = $request->file('profile_pic')){
             $name = time().time(). '.'.$file->getClientOriginalExtension();
@@ -58,13 +59,36 @@ class NurseController extends Controller
             if($file->move($target_path, $name)){
                 $data = $request->all();
                 $data['profile_pic'] = $name;
-                $create_patient = Nurse::create($data);
+                $create_patient = new Patient([
+                    'first_name' => $data['first_name'],
+                    'last_name' => $data['last_name'],
+                    'middlename' => $data['middle_name'],
+                    'gender' => $data['gender'],
+                    'profile_pic' => $data['profile_pic'],
+                    'blodod_group' => $data['blood_group'],
+                    'date_birth' => $data['date_birth'],
+                    'phone_number' => $data['phone_number'],
+                    'email' => $data['email'],
+                    'address' => $data['address']
+                ]);
+                $create_patient->save();
                 return redirect()->route('nurse.index')->with('success', 'Patient Successfully Registered');
 
             }
         }
         $data = $request->all();
-        $create_patient= Nurse::create($data);
+        $create_patient = new Patient([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'middlename' => $data['middle_name'],
+            'gender' => $data['gender'],
+            'blood_group' => $data['blood_group'],
+            'date_birth' => $data['date_birth'],
+            'phone_number' => $data['phone_number'],
+            'email' => $data['email'],
+            'address' => $data['address']
+        ]);
+        $create_patient->save();
         return redirect()->route('nurse.index')->with('success', 'Patient Successfully Registered');
 
     }

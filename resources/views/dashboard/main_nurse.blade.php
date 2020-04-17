@@ -116,7 +116,15 @@
                    {{$data->gender}}
                   </td>
                   <td><span class="badge bg-red">{{ $data->blood_group}}</span></td>
-                  <td><button class="btn btn-primary">Make Appointment</button></td>
+                  <td>
+                  <div class="btn-group">
+                  <button class="btn btn-primary btn-sm">Make Appointment</button>
+                  </div>
+                  <div class="btn-group">
+                       <button class="btn btn-primary btn-sm">View Patient File</button>
+                  </div>
+                   
+                  </td>
                 </tr>
                 @endforeach
               </table>

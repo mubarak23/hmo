@@ -40,7 +40,12 @@ Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
     Route::get('/create', [
         'uses' => 'NurseController@create',
         'as' => 'nurse.create'
-    ]); 
+    ]);
+    
+    Route::post('/store', [
+        'uses' => 'NurseController@store',
+        'as' => 'nurse.store'
+    ]);
 
 });
 
