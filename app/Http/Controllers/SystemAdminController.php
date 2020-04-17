@@ -22,6 +22,18 @@ class SystemAdminController extends Controller
         return view('dashboard.main', ['user_data' => $user_data, 'user_role'=> $user_role]);
     }
 
+    public function assing_user_role(Request $request){
+            //dd($request->all());
+            $data = $request->all();
+            //find the user
+            $assign_role = User::find($data['user_id']);
+            //dd($assign_role);
+            $assign_role->user_roles_id = $data['user_role_id'];
+            $assign_role->save();
+            //return $assign_role;
+            return redirect()->route('admin.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

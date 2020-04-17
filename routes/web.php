@@ -22,6 +22,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['systemadmin']], function(){
         'uses' => 'SystemAdminController@index',
         'as' => 'admin.index'
     ]);
+  Route::post('/assign_role', [
+      'uses' => 'SystemAdminController@assing_user_role',
+      'as' => 'admin.assign_role'
+  ]);
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
