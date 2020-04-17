@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Nurse;
 use App\Patient;
-use Ap\Doctor;
+use App\Doctor;
 use Illuminate\Http\Request;
 
 class NurseController extends Controller
@@ -19,7 +19,7 @@ class NurseController extends Controller
         // patient data
         $patient_data = Patient::take(5)->latest()->get();
         $doctors_data = Doctor::all();
-        return view('dashboard.main_nurse', [$patient_data => $patient_data, $doctors =>$doctors_data]);
+        return view('dashboard.main_nurse', ['patient_data' => $patient_data, 'doctors' =>$doctors_data]);
     }
 /**
      * Show the form for creating a new resource.

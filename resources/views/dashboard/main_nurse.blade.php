@@ -25,7 +25,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-       <div class="row">
+        <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
@@ -41,6 +41,7 @@
             </div>
             <!-- /.info-box -->
           </div>
+          <!-- ./col -->
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
@@ -56,7 +57,7 @@
           </div>
           <!-- /.col -->
 
-          <!-- fix for small devices only -->
+          <!-- ./col -->
           <div class="clearfix hidden-md-up"></div>
 
           <div class="col-12 col-sm-6 col-md-3">
@@ -83,32 +84,28 @@
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
+          </div> 
+          <!-- ./col -->
         </div>
         <!-- /.row -->
         <!-- Main row -->
-        </div>
-      </div>
-      </section>
-
-      <section>
+        <section>
         <div class="row">
 
           <div class="col-md-6">
 
             <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Patient List</h3>
+              <h3 class="box-title">Patients Lists</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table class="table table-bordered">
                 <tr>
-                  <th style="width: 10px">ID</th>
+                  <th>ID</th>
                   <th>Name</th>
                   <th>Gender</th>
-                  <th style="width: 40px">Blood Group</th>
+                  <th>Blood Group</th>
                   <th>Action</th>
                 </tr>
                 <tr>
@@ -136,7 +133,7 @@
 
         <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Patient Status</h3>
+              <h3 class="box-title">Admitted Patients in Ward</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -200,5 +197,135 @@
 
       </div>
       </section>
-        
-        @endsection
+
+      <section>
+      <div class="row">
+      <div class="col-md-6">
+      <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Staff Activities</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Task</th>
+                  <th>Progress</th>
+                  <th style="width: 40px">Label</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>Update software</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-red">55%</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Clean database</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-yellow">70%</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Cron job running</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-light-blue">30%</span></td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Fix and squish bugs</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-green">90%</span></td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            
+          </div>
+          <!-- /.box -->
+
+      </div>
+
+      <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Patients Record Satus</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Task</th>
+                  <th>Progress</th>
+                  <th style="width: 40px">Label</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>Update software</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-red">55%</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Clean database</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-yellow">70%</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Cron job running</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-light-blue">30%</span></td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Fix and squish bugs</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-green">90%</span></td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            
+          </div>
+          <!-- /.box -->
+
+
+      </div>
+      </div>
+      </section>
+     @endsection
