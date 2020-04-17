@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
+use Hash;
 use Illuminate\Http\Request;
 
 class SignupController extends Controller
@@ -13,14 +14,17 @@ class SignupController extends Controller
     }
 
     public function create_account(Request $request){
+        //dd($request->all());
+        
         $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => "required",
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name' => ['required'],
+            'email' => ['required'],
+            'phone' => ["required"],
+            'password' => ['required'],
         ]);
-
-        $user_account =  User::create([
+        $data = $request->all();
+       // dd($data['phone']);
+        $user_account =  new User([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
