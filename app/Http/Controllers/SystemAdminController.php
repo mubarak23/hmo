@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\SystemAdmin;
+use App\User;
 use Illuminate\Http\Request;
 
 class SystemAdminController extends Controller
@@ -15,7 +16,8 @@ class SystemAdminController extends Controller
     public function index()
     {
         //
-        return view('dashboard.main');
+        $user_data = User::take(5)->latest()->get();
+        return view('dashboard.main', ['user_data' => $user_data]);
     }
 
     /**
