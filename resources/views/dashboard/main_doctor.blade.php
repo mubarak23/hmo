@@ -13,7 +13,56 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active" data-toggle="modal"  data-target="#update_profile-{{ Auth::user()->id }}" >
+              <a href="#">Update Profile</a></li>
+
+
+              <div class="modal fade" id="update_profile-{{ Auth::user()->id }}">
+                <div class="modal-dialog modal-sm">
+                <form action="{{ route('appointment.post') }}" method="post">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Upadte Profile</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                      <label>Specialist</label>
+                      <input type="text" class="form-control" name="specialist"/>
+                      </div>
+                      <div class="form-group">
+                      <input type="hidden" name="user_id" value={{ Auth::user()->id }} />
+                      </div>
+                      <div class="form-group">
+                      <label>Office Number</label>
+                      <input type="number" name="office_no" class="form-control" />
+                      </div>
+                      <div class="form-group">
+                      <label>Consultation Hours</label>
+                      <input type="text" name="consultation_hours" class="form-control" />
+                      </div>
+                    </div>
+                    
+                    <div class="modal-footer justify-content-between">
+                    {{ csrf_field() }}
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Upadte Profile</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                </form>
+                <!-- /.modal-dialog -->
+              </div>
+              <!-- /.modal -->
+
+
+
+
+
+
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

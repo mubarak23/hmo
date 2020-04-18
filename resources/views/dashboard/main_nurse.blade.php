@@ -158,7 +158,7 @@
                     <div class="modal-footer justify-content-between">
                     {{ csrf_field() }}
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Save changes</button>
+                      <button type="submit" class="btn btn-primary">Make Appointment</button>
                     </div>
                   </div>
                   <!-- /.modal-content -->
