@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Doctor;
+use App\User;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -16,6 +17,23 @@ class DoctorController extends Controller
     {
         //
         return view('dashboard.main_doctor');
+    }
+
+
+    public function updateprofile(Request $request){
+            //dd($request->all());
+            $data = $request->all();
+            //get user data
+            $user_data = User::find($data['user_id']);
+            $update_profile = new Doctor([
+                'user_id' => $data['user_id'],
+                'name'  => $user_data->name,
+                'specialist' => $data['specialist'],
+                'office_no' => $data['office_no'],
+                'consultation_hours' => $data['consultation_hours']
+            ]);
+            $update_profile->save();
+            return redirect()->route('doctor.index')->with('success', 'Patient Successfully Registered');
     }
 
     /**

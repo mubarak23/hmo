@@ -19,7 +19,7 @@
 
               <div class="modal fade" id="update_profile-{{ Auth::user()->id }}">
                 <div class="modal-dialog modal-sm">
-                <form action="{{ route('appointment.post') }}" method="post">
+                <form action="{{ route('doctor.update') }}" method="post">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h4 class="modal-title">Upadte Profile</h4>
