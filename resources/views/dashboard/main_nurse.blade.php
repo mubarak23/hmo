@@ -118,7 +118,67 @@
                   <td><span class="badge bg-red">{{ $data->blood_group}}</span></td>
                   <td>
                   <div class="btn-group">
-                  <button class="btn btn-primary btn-sm">Make Appointment</button>
+                  <button class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#make_appointment-{{ $data->id }}">Make Appointment</button>
+                
+                <div class="modal fade" id="make_appointment-{{ $data->id }}">
+                <div class="modal-dialog modal-sm">
+                <form action="{{ route('appointment.post') }}" method="post">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Make Appointment</h4>
+                      
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    {{ $data->id }}
+                    <div class="modal-body">
+                      <div class="form-group">
+                      <select class="form-control" name="doctor_id">
+                      @foreach($doctors as $doctor)
+                      <option value={{$doctor->id}} class="form-input"> {{$doctor->name}} </option>
+                      @endforeach
+                      </select>
+                      </div>
+                      <div class="form-group">
+                      <input type="hidden" name="patient_id" value={{$data->id}} />
+                      </div>
+                      <div class="form-group">
+                      <input type="time" name="appt_time" class="form-control" />
+                      </div>
+                       <div class="form-group">
+                    <label>Remark</label>
+                    <textarea class="form-control" name="remark" rows="3" placeholder="Enter A Remark"></textarea>
+                    </div>     
+
+                      
+                    </div>
+                    
+                    <div class="modal-footer justify-content-between">
+                    {{ csrf_field() }}
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                </form>
+                <!-- /.modal-dialog -->
+              </div>
+              <!-- /.modal -->
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   </div>
                   <div class="btn-group">
                        <button class="btn btn-primary btn-sm">View Patient File</button>

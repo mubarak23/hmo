@@ -12,10 +12,12 @@ class AppointmentController extends Controller
     }
 
     public function create(Request $request){
+        dd($request->all());
         $this->validate($request, [
             'appt_time' => 'required',
             'remark' => 'required'
         ]);
+
         $appointment = Appointment::create($request->all());
         return redirect()->route('appointment.index');
     }

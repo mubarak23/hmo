@@ -85,14 +85,14 @@ Route::group(['prefix' => 'patient', 'middleware' => ['patient']], function(){
     ]);
 });
 
-Route::group(['prefix' => 'appointment', 'middleware' => ['systemadmin', 'nurse', 'doctor']], function(){
+Route::group(['prefix' => 'appointment'], function(){
     Route::get('/', [
         'uses' => 'AppointmentController@index',
         'as' => 'appointment.index'
     ]);
 
     Route::post('/', [
-        'uses' => 'AppointmentController@index',
+        'uses' => 'AppointmentController@create',
         'as'   => 'appointment.post'
     ]);
     
