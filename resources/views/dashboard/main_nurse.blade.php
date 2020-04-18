@@ -131,7 +131,7 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    {{ $data->id }}
+                    
                     <div class="modal-body">
                       <div class="form-group">
                       <select class="form-control" name="doctor_id">
@@ -149,6 +149,7 @@
                        <div class="form-group">
                     <label>Remark</label>
                     <textarea class="form-control" name="remark" rows="3" placeholder="Enter A Remark"></textarea>
+                    
                     </div>     
 
                       
