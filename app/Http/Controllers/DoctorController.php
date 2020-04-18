@@ -23,7 +23,7 @@ class DoctorController extends Controller
         $doctor = Doctor::where('user_id', $user_id)->first();
         //return $doctor;
         $appointments = Appointment::where('doctor_id', $doctor->user_id)->with('doctor')->with('patient')->get();
-        return $appointments;
+        //return $appointments;
         return view('dashboard.main_doctor', ['appointments' => $appointments]);
     }
 

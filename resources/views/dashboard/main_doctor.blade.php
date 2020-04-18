@@ -13,56 +13,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" data-toggle="modal"  data-target="#update_profile-{{ Auth::user()->id }}" >
-              <a href="#">Update Profile</a></li>
-
-
-              <div class="modal fade" id="update_profile-{{ Auth::user()->id }}">
-                <div class="modal-dialog modal-sm">
-                <form action="{{ route('doctor.update') }}" method="post">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Upadte Profile</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="form-group">
-                      <label>Specialist</label>
-                      <input type="text" class="form-control" name="specialist"/>
-                      </div>
-                      <div class="form-group">
-                      <input type="hidden" name="user_id" value={{ Auth::user()->id }} />
-                      </div>
-                      <div class="form-group">
-                      <label>Office Number</label>
-                      <input type="number" name="office_no" class="form-control" />
-                      </div>
-                      <div class="form-group">
-                      <label>Consultation Hours</label>
-                      <input type="text" name="consultation_hours" class="form-control" />
-                      </div>
-                    </div>
-                    
-                    <div class="modal-footer justify-content-between">
-                    {{ csrf_field() }}
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Upadte Profile</button>
-                    </div>
-                  </div>
-                  <!-- /.modal-content -->
-                </div>
-                </form>
-                <!-- /.modal-dialog -->
-              </div>
-              <!-- /.modal -->
-
-
-
-
-
-
+              <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -138,73 +89,35 @@
         </div>
         <!-- /.row -->
         <!-- Main row -->
-        </div>
-      </div>
-      </section>
-
-
-
-       <section>
+        <section>
         <div class="row">
 
           <div class="col-md-6">
 
             <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">My Appointment</h3>
+              <h3 class="box-title">Appointment</h3>
             </div>
             <!-- /.box-header -->
+
             <div class="box-body">
               <table class="table table-bordered">
                 <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Task</th>
-                  <th>Progress</th>
-                  <th style="width: 40px">Label</th>
+                  <th>id</th>
+                  <th>Patient Name</th>
+                  <th>Appt. Time</th>
+                  <th>Action</th>
                 </tr>
                 <tr>
-                  <td>1.</td>
-                  <td>Update software</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-red">55%</span></td>
-                </tr>
-                <tr>
-                  <td>2.</td>
-                  <td>Clean database</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-yellow">70%</span></td>
-                </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>Cron job running</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-light-blue">30%</span></td>
-                </tr>
-                <tr>
-                  <td>4.</td>
-                  <td>Fix and squish bugs</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-green">90%</span></td>
+                @foreach($appointments as $appointment)
+                  <td>{{ $appointment->id}}</td>
+                  <td>{{ $appointment->patient->first_name}} {{ $appointment->patient->last_name}}</td>
+                  <td>{{ $appointment->appt_time}}</td>
+                  <td><button class="btn btn-primary btn-sm">View Patient File</button></td>
+                  @endforeach
                 </tr>
               </table>
             </div>
-            <!-- /.box-body -->
             
           </div>
           <!-- /.box -->
@@ -284,84 +197,66 @@
       <section>
       <div class="row">
       <div class="col-md-6">
-      <div class="box">
+        <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title"> User Roles</h3>
+              <h3 class="box-title">Patients Record Satus</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table class="table table-bordered">
                 <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Action</th>
+                  <th style="width: 10px">#</th>
+                  <th>Task</th>
+                  <th>Progress</th>
+                  <th style="width: 40px">Label</th>
                 </tr>
                 <tr>
-                @foreach($user_data as $data)
-                  <td>{{$data->id}}</td>
-                  <td>{{$data->name}}</td>
+                  <td>1.</td>
+                  <td>Update software</td>
                   <td>
-                   {{$data->email}}
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                    </div>
                   </td>
-                  <td>
-                  <div class="btn-group">
-                  <button class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#assign-role-{{ $data->id }}">Assign Role</button>
-                  
-
-            <div class="modal fade" id="assign-role-{{ $data->id }}">
-        <div class="modal-dialog modal-sm">
-        <form action="{{ route('admin.assign_role') }}" method="post">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Assign Role to User</h4>
-              
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            
-            <div class="modal-body">
-              <div class="form-group">
-              <select class="form-control" name="user_role_id">
-              @foreach($user_role as $role)
-              <option value={{$role->id}} class="form-input"> {{$role->name}} </option>
-              @endforeach
-              </select>
-              </div>
-              <div class="form-group">
-              <input type="hidden" name="user_id" value={{$data->id}} />
-              </div>
-              
-            </div>
-            
-            <div class="modal-footer justify-content-between">
-            {{ csrf_field() }}
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        </form>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-              
-                  </div>
-                  <div class="btn-group">
-                       <button class="btn btn-primary btn-sm">View Activity</button>
-                  </div>
-                   
-                  </td>
+                  <td><span class="badge bg-red">55%</span></td>
                 </tr>
-                @endforeach
+                <tr>
+                  <td>2.</td>
+                  <td>Clean database</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-yellow">70%</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Cron job running</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-light-blue">30%</span></td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Fix and squish bugs</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-green">90%</span></td>
+                </tr>
               </table>
             </div>
             <!-- /.box-body -->
             
           </div>
           <!-- /.box -->
+
 
       </div>
 
@@ -430,5 +325,8 @@
       </div>
       </div>
       </section>
-        
-        @endsection
+     @endsection
+
+
+
+     
