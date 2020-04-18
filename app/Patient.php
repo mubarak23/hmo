@@ -10,6 +10,6 @@ class Patient extends Model
     'date_birth', 'gender', 'profile_pic', 'blood_group', 'email', 'phone_number', 'status', 'address'];
     //
     public function appointment(){
-        return $this->hasMany('App\Appointment', 'patient_id');
+        return $this->hasMany(Appointment::class, 'patient_id');
 }
 }

@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Doctor;
+use App\Patient;
 use App\User;
+use App\Appointment;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -16,7 +18,12 @@ class DoctorController extends Controller
     public function index()
     {
         //
-        return view('dashboard.main_doctor');
+        //dd(Auth::user()->id);
+        $doctor = Doctor::find(Auth::user()->id);
+        //return $doctor;
+        $appointments = Appointment::where('doctor_id', $doctor->id)->with('doctor')->with('patient')->get();
+        return $appointments;
+        return view('dashboard.main_doctor', ['appointments' => $appointments]);
     }
 
 

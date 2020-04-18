@@ -141,5 +141,294 @@
         </div>
       </div>
       </section>
+
+
+
+       <section>
+        <div class="row">
+
+          <div class="col-md-6">
+
+            <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">My Appointment</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Task</th>
+                  <th>Progress</th>
+                  <th style="width: 40px">Label</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>Update software</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-red">55%</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Clean database</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-yellow">70%</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Cron job running</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-light-blue">30%</span></td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Fix and squish bugs</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-green">90%</span></td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            
+          </div>
+          <!-- /.box -->
+
+
+        </div> 
+
+        <div class="col-md-6">
+
+        <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Patient Status</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Task</th>
+                  <th>Progress</th>
+                  <th style="width: 40px">Label</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>Update software</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-red">55%</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Clean database</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-yellow">70%</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Cron job running</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-light-blue">30%</span></td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Fix and squish bugs</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-green">90%</span></td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            
+          </div>
+          <!-- /.box -->
+
+        </div>
+
+        
+
+      </div>
+      </section>
+
+      <section>
+      <div class="row">
+      <div class="col-md-6">
+      <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title"> User Roles</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                @foreach($user_data as $data)
+                  <td>{{$data->id}}</td>
+                  <td>{{$data->name}}</td>
+                  <td>
+                   {{$data->email}}
+                  </td>
+                  <td>
+                  <div class="btn-group">
+                  <button class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#assign-role-{{ $data->id }}">Assign Role</button>
+                  
+
+            <div class="modal fade" id="assign-role-{{ $data->id }}">
+        <div class="modal-dialog modal-sm">
+        <form action="{{ route('admin.assign_role') }}" method="post">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Assign Role to User</h4>
+              
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+            <div class="modal-body">
+              <div class="form-group">
+              <select class="form-control" name="user_role_id">
+              @foreach($user_role as $role)
+              <option value={{$role->id}} class="form-input"> {{$role->name}} </option>
+              @endforeach
+              </select>
+              </div>
+              <div class="form-group">
+              <input type="hidden" name="user_id" value={{$data->id}} />
+              </div>
+              
+            </div>
+            
+            <div class="modal-footer justify-content-between">
+            {{ csrf_field() }}
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        </form>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+              
+                  </div>
+                  <div class="btn-group">
+                       <button class="btn btn-primary btn-sm">View Activity</button>
+                  </div>
+                   
+                  </td>
+                </tr>
+                @endforeach
+              </table>
+            </div>
+            <!-- /.box-body -->
+            
+          </div>
+          <!-- /.box -->
+
+      </div>
+
+      <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Patients Record Satus</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Task</th>
+                  <th>Progress</th>
+                  <th style="width: 40px">Label</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>Update software</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-red">55%</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Clean database</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-yellow">70%</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Cron job running</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-light-blue">30%</span></td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Fix and squish bugs</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-green">90%</span></td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            
+          </div>
+          <!-- /.box -->
+
+
+      </div>
+      </div>
+      </section>
         
         @endsection
