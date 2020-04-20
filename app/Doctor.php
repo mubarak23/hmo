@@ -28,4 +28,10 @@ class Doctor extends Model
     }
     
     
+    public function priscription()
+    {
+        return $this->hasMany(Priscription::class, 'doctor_id', 'id');
+    }
+    
+    
 }

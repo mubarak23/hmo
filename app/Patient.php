@@ -24,6 +24,13 @@ class Patient extends Model
      {
          return $this->hasMany(Consultation::class, 'paitent_id', 'id');
      }
+
+     
+     public function priscriptions()
+     {
+         return $this->hasMany(Priscription::class, 'patient_id', 'id');
+     }
+     
      
 
      
