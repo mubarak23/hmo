@@ -43,6 +43,12 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
         'as' => 'doctor.disease'
     ]);
 
+    Route::post('/request_test', [
+
+        'uses' => 'DoctorController@RequestTest',
+        'as' => 'doctor.request_test'
+    ]);
+    
 
 });
 

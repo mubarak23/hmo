@@ -53,7 +53,7 @@ class DoctorController extends Controller
     }
 
 
-    public function ReuestTest(Request $request){
+    public function RequestTest(Request $request){
         $this->validate($request->all(), [
             'patient_id' => 'required',
             'doctor_id' => 'required',

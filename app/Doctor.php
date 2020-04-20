@@ -16,9 +16,16 @@ class Doctor extends Model
     }
 
     
-    public function test()
+    public function tests()
     {
         return $this->hasMany(Test::class, 'doctor_id');
     }
+
+    
+    public function consultations()
+    {
+        return $this->hasMany(Consultation::class, 'doctor_id', 'id');
+    }
+    
     
 }

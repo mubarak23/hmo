@@ -20,5 +20,12 @@ class Patient extends Model
      }
 
      
+     public function consultations()
+     {
+         return $this->hasMany(Consultation::class, 'paitent_id', 'id');
+     }
+     
+
+     
         
 }
