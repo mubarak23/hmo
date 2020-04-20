@@ -48,7 +48,7 @@ class DoctorController extends Controller
     public function viewalldisease()
     {
           $disease_data = Disease::paginate(10);
-          return view('dashboard.doctor.disease', ['disease' => $disease_data]); 
+          return view('dashboard.doctor.disease', ['diseases' => $disease_data]); 
     }
 
     
