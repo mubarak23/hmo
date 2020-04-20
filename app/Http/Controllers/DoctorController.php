@@ -6,6 +6,7 @@ use App\Doctor;
 use App\Patient;
 use App\Disease;
 use App\User;
+use APP\Test;
 use App\Appointment;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,28 @@ class DoctorController extends Controller
     {
           $disease_data = Disease::paginate(10);
           return view('dashboard.doctor.disease', ['diseases' => $disease_data]); 
+    }
+
+
+    public function ReuestTest(Request $request){
+        $this->validate($request->all(), [
+            'patient_id' => 'required',
+            'doctor_id' => 'required',
+            'type' => 'required'
+        ]);
+
+        $data = $request->all();
+        $request_test = new Test([
+            'patient_id' => $data['patient_id'],
+            'doctor_id' => $data['doctor_id'],
+            'type'  => $data['type'],
+            'lab_service' => $data['lab_service'],
+            'status' => $data['status'],
+            'request' => $data['request'],
+            'result_url' => $data['result_url']
+        ]);
+        $request_test->save();
+        return redirect()->back();
     }
 
     

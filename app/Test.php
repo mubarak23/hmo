@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     //
+    protected $fillable = [
+        'patient_id', 'doctor_id', 'type', 'lab_service', 'status', 'request' ,'result_url'
+    ];
 
    
         public function patient()
