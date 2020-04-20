@@ -17,10 +17,10 @@ class CreateDiseasesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('excepts')->nullable();
-            $table->longText('symptoms');
-            $table->longText('transmission');
-            $table->longText('Diagnosis');
-            $table->longText('treatment');
+            $table->longText('symptoms')->nullable();
+            $table->longText('transmission')->nullable();
+            $table->longText('Diagnosis')->nullable();
+            $table->longText('treatment')->nullable();
             $table->timestamps();
         });
     }

@@ -134,7 +134,7 @@
           @if(Auth::user()->user_roles_id == 2)
             <li class="header">Doctoss Sidebar</li>
            <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('doctor.disease') }}" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 View Dieases

@@ -39,7 +39,7 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
     ]);
 
     Route::get('/disease', [
-        'uses' => 'DDoctorController@viewalldisease',
+        'uses' => 'DoctorController@viewalldisease',
         'as' => 'doctor.disease'
     ]);
 
