@@ -49,11 +49,11 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
         'as' => 'doctor.request_test'
     ]);
 
-    Route::get('/patient_activity', [
+    Route::get('/patient_activity/{patient_id}', [
         'uses' => 'DoctorController@patient_activity',
         'as' => 'doctor.patient_activity'
     ]);
-    
+
     
 
 });

@@ -76,7 +76,11 @@ class DoctorController extends Controller
 
 
     //patient file activity
-    public function patient_activity(){
+    public function patient_activity($patient_id){
+        //dd($patient_id);
+        $patient_activities = Patient::where('id', $patient_id)->with('appointment')
+                                ->with('consultations')->with('priscriptions')->get();
+                                return $patient_activities;
         //collect data i.e patient details, appointment, priscription and consultation
         return view('dashboard.patient.activity');
     }

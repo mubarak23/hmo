@@ -22,7 +22,7 @@ class Patient extends Model
      
      public function consultations()
      {
-         return $this->hasMany(Consultation::class, 'paitent_id', 'id');
+         return $this->hasMany(Consultation::class, 'patient_id', 'id');
      }
 
      
