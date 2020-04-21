@@ -74,6 +74,13 @@ class DoctorController extends Controller
         return redirect()->back();
     }
 
+
+    //patient file activity
+    public function patient_activity(){
+        //collect data i.e patient details, appointment, priscription and consultation
+        return view('dashboard.patient.activity');
+    }
+
     
 
     

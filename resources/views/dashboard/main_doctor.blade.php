@@ -113,7 +113,8 @@
                   <td>{{ $appointment->id}}</td>
                   <td>{{ $appointment->patient->first_name}} {{ $appointment->patient->last_name}}</td>
                   <td>{{ $appointment->appt_time}}</td>
-                  <td><button class="btn btn-primary btn-sm">View Patient File</button></td>
+                  <td><a href="{{ route('doctor.patient_activity') }}"><button class="btn btn-primary btn-sm">
+                  View Patient File</button></a></td>
                   @endforeach
                 </tr>
               </table>
