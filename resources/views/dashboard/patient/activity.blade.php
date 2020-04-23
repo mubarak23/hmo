@@ -119,19 +119,19 @@
               <table class="table table-bordered">
                 <tr>
                   <th>id</th>
-                  <th>Patient Name</th>
+                  <th>Doctor Name </th>
                   <th>Appt. Time</th>
                   <th>Action</th>
                 </tr>
                 <tr>
-                @foreach($appointments as $appointment)
+                @foreach($patient_activities as $appointment)
                   <td>{{ $appointment->id}}</td>
-                  <td>{{ $appointment->patient->first_name}} {{ $appointment->patient->last_name}}</td>
+                  <td>{{ $appointment->doctor->first_name}} {{ $appointment->doctor->last_name}}</td>
                   <td>{{ $appointment->appt_time}}</td>
-                  <td><a href="{{ route('doctor.patient_activity') }}"><button class="btn btn-primary btn-sm">
-                  View Patient File</button></a></td>
+                  <td><a href="#"><button class="btn btn-primary btn-sm">
+                  Add consultation Remark</button></a></td>
+                  </tr>
                   @endforeach
-                </tr>
               </table>
             </div>
                     </div>
