@@ -80,9 +80,10 @@ class DoctorController extends Controller
         //dd($patient_id);
         $patient_activities = Appointment::where('patient_id', $patient_id)->with('doctor')
                                 ->get();
-         $doctor_activities = Patient::where('id', $patient_id)->with('consultations')->with('priscriptions')->get();                       
+         $doctor_activities = Patient::where('id', $patient_id)
+         ->with('consultations')->with('priscriptions')->first();                       
                             //return $patient_activities;
-                            //return $doctor_activity;
+                            //return $doctor_activities;
         //collect data i.e patient details, appointment, priscription and consultation
 
         return view('dashboard.patient.activity',
