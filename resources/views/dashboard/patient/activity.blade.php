@@ -126,7 +126,7 @@
                 <tr>
                 @foreach($patient_activities as $appointment)
                   <td>{{ $appointment->id}}</td>
-                  <td>{{ $appointment->doctor->first_name}} {{ $appointment->doctor->last_name}}</td>
+                  <td>{{ $appointment->doctor->name}}</td>
                   <td>{{ $appointment->appt_time}}</td>
                   <td><a href="#"><button class="btn btn-primary btn-sm">
                   Add consultation Remark</button></a></td>

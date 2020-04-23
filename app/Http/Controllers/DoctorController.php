@@ -81,7 +81,7 @@ class DoctorController extends Controller
         $patient_activities = Appointment::where('patient_id', $patient_id)->with('doctor')
                                 ->get();
          $doctor_activities = Patient::where('id', $patient_id)->with('consultations')->with('priscriptions')->get();                       
-                            return $patient_activities;
+                            //return $patient_activities;
                             //return $doctor_activity;
         //collect data i.e patient details, appointment, priscription and consultation
 
