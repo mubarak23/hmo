@@ -125,13 +125,29 @@
                          placeholder="Enter Consultation Remake /Symptoms"></textarea>
                         </div>
                         <div class="form-group">
-                  <label>Next Appointment Date:</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                      <label>Next Appointment Date:</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        <input type="text" name="next_appt_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                      </div>
+
+                      <div class="form-group">
+                      <div class="icheck-primary d-inline">
+                      <label>Test Status </label>
+                        <input type="radio" id="male" name="test_status" value="true" >
+                        <label for="radioPrimary1">
+                        Yes
+                        </label>
+                      </div>
+                      <div class="icheck-primary d-inline">
+                        <input type="radio" id="female" name="test_status" value="no">
+                        <label for="radioPrimary2">
+                        No
+                        </label>
+                      </div>
                     </div>
-                    <input type="text" name="next_appt_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-                  </div>
                   <!-- /.input group -->
                 </div>
                           

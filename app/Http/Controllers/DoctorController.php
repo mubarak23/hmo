@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use App\Consultation;
 use App\Doctor;
 use App\Patient;
 use App\Disease;
@@ -88,6 +89,19 @@ class DoctorController extends Controller
 
         return view('dashboard.patient.activity',
          ['patient_activities' => $patient_activities, 'doctor_activities' => $doctor_activities]);
+    }
+
+
+    public function add_consutation(){
+        Consultation::create(request()->validate([
+            'patient_id' => 'required',
+            'doctor_id' => 'required',
+            'symptoms' => 'required',
+            'next_appt_date' => 'required',
+            'test_status'  => 'required'
+        ]));
+        return redirect()->route('patient_activity/{requeest("patient_id")}');
+
     }
 
     
