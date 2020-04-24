@@ -121,8 +121,10 @@ class DoctorController extends Controller
     }
 
     public function doctor_priscription($doctor_id){
-        $doctor_priscriptions = Priscription::where('docotr_id', $doctor_id)->get();
-        return view('dashboard.doctor.disease', ['doctor_priscriptions' => $doctor_priscriptions]);
+        $doctor_priscriptions = Priscription::where('doctor_id', $doctor_id)->with('patient')->get();
+         //return $doctor_priscriptions;   
+        return view('dashboard.doctor.priscription',
+         ['doctor_priscriptions' => $doctor_priscriptions]);
     }
 
     

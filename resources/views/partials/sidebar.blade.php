@@ -132,7 +132,7 @@
 
   <!-- /.doctors sidebar -->
           @if(Auth::user()->user_roles_id == 2)
-            <li class="header">Doctoss Sidebar</li>
+            <li class="header">Doctors Sidebar</li>
            <li class="nav-item has-treeview">
             <a href="{{ route('doctor.disease') }}" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -153,7 +153,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="{{ route('doctor.priscription', Auth::user()->id)}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Priscribtions
