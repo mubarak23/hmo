@@ -92,7 +92,11 @@
             
             <div class="modal-body">
               <div class="form-group">
-              
+              <select name="drugs" class="custom-select" multiple data-live-search="true">
+              @foreach($drugs as $drug)
+              <option value={{$drug->name}} class="form-input"> {{$drug->name}} </option>
+              @endforeach
+              </select>
               </div>
               <div class="form-group">
               <input type="hidden" name="patient_id" value={{$doctor_activities->id}} />

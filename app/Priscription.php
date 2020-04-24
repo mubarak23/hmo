@@ -8,6 +8,8 @@ class Priscription extends Model
 {
     //
 
+    protected $fillable = ['patient_id', 'doctor_id', 'symptoms', 'drugs', 'period', 'status'];
+
     
     public function patient()
     {

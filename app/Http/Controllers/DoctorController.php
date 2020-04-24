@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Consultation;
 use App\Doctor;
+use App\Drug;
 use App\Patient;
 use App\Disease;
 use App\User;
@@ -83,12 +84,13 @@ class DoctorController extends Controller
                                 ->get();
          $doctor_activities = Patient::where('id', $patient_id)
          ->with('consultations')->with('priscriptions')->first();                       
-                            //return $patient_activities;
-                            //return $doctor_activities;
+         $drugs =Drug::all();                    
         //collect data i.e patient details, appointment, priscription and consultation
 
         return view('dashboard.patient.activity',
-         ['patient_activities' => $patient_activities, 'doctor_activities' => $doctor_activities]);
+         ['patient_activities' => $patient_activities, 
+         'doctor_activities' => $doctor_activities,
+         'drugs' => $drugs]);
     }
 
 
