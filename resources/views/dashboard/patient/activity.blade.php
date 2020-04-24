@@ -94,11 +94,14 @@
 
               <div class="form-group">
               <label>Select Drugs</label>
-              <select name="drugs" class="custom-select" multiple data-live-search="true">
-              @foreach($drugs as $drug)
-              <option value={{$drug->name}} class="form-input"> {{$drug->name}} </option>
-              @endforeach
-              </select>
+              @foreach ($drugs as $drug)
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="drugs" value="{{ $drug->name }}">
+                            {{ $drug->name }}
+                        </label>
+                    </div>
+                @endforeach
               </div>
 
               <div class="form-group">
@@ -127,7 +130,7 @@
             <div class="modal-footer justify-content-between">
             {{ csrf_field() }}
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Assign Role</button>
+              <button type="submit" class="btn btn-primary">Give Priscription</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -244,94 +247,33 @@
                     <!-- The timeline -->
                     <div class="timeline timeline-inverse">
                       <!-- timeline time label -->
+                      @forelse($doctor_activities->consultations as $consultation)
                       <div class="time-label">
                         <span class="bg-danger">
-                          10 Feb. 2014
+                          {{ date('d-m-Y', strtotime($consultation->created_at)) }}
                         </span>
                       </div>
+
                       <!-- /.timeline-label -->
                       <!-- timeline item -->
                       <div>
                         <i class="fas fa-envelope bg-primary"></i>
-
                         <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                          <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
+                          <h3 class="timeline-header">
+                          Symptoms</h3>
                           <div class="timeline-body">
-                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                            quora plaxo ideeli hulu weebly balihoo...
+                            {{ $consultation->symptoms}}
                           </div>
                           <div class="timeline-footer">
-                            <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                            <p class="timeline-header"><b>Next Appointment Date</b></p>
+                            {{ $consultation->next_appt_date}}
                           </div>
                         </div>
                       </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-user bg-info"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-
-                          <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request
-                          </h3>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-comments bg-warning"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
-                          <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                          <div class="timeline-body">
-                            Take me to your leader!
-                            Switzerland is small and neutral!
-                            We are more like Germany, ambitious and misunderstood!
-                          </div>
-                          <div class="timeline-footer">
-                            <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline time label -->
-                      <div class="time-label">
-                        <span class="bg-success">
-                          3 Jan. 2014
-                        </span>
-                      </div>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-camera bg-purple"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
-                          <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                          <div class="timeline-body">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <div>
-                        <i class="far fa-clock bg-gray"></i>
-                      </div>
+                      <!-- END timeline item -->  
+                      @empty
+                      <p>No Consultation details</p>
+                      @endforelse
                     </div>
                   </div>
                   <!-- /.tab-pane -->
@@ -342,94 +284,37 @@
                     <!-- The timeline -->
                     <div class="timeline timeline-inverse">
                       <!-- timeline time label -->
+                      @forelse($doctor_activities->priscriptions as $priscription)
                       <div class="time-label">
                         <span class="bg-danger">
-                          10 Feb. 2014
+                          {{ date('d-m-Y', strtotime($priscription->created_at)) }}
                         </span>
                       </div>
                       <!-- /.timeline-label -->
                       <!-- timeline item -->
                       <div>
                         <i class="fas fa-envelope bg-primary"></i>
-
                         <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                          <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                          <div class="timeline-body">
-                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                            quora plaxo ideeli hulu weebly balihoo...
+                          <h3 class="timeline-header">Symptoms</h3>
+                          <div class="timeline-header">
+                            {{ $priscription->symptoms}}
                           </div>
-                          <div class="timeline-footer">
-                            <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                          <div class="timeline-header">
+                            <h5 class="timeline-header">Drugs</h5>
+                            {{ $priscription->drugs}}
+                          </div>
+                          <div class="timeline-header">
+                            <h5 class="timeline-header">Period Duration</h5>
+                            {{ $priscription->period}}
                           </div>
                         </div>
                       </div>
                       <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-user bg-info"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-
-                          <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request
-                          </h3>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-comments bg-warning"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
-                          <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                          <div class="timeline-body">
-                            Take me to your leader!
-                            Switzerland is small and neutral!
-                            We are more like Germany, ambitious and misunderstood!
-                          </div>
-                          <div class="timeline-footer">
-                            <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline time label -->
-                      <div class="time-label">
-                        <span class="bg-success">
-                          3 Jan. 2014
-                        </span>
-                      </div>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-camera bg-purple"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
-                          <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                          <div class="timeline-body">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                            <img src="http://placehold.it/150x100" alt="...">
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <div>
-                        <i class="far fa-clock bg-gray"></i>
-                      </div>
+                      @empty
+                      <p>No Consultation details</p>
+                      @endforelse
+                      
+                      
                     </div>
                   </div>
                   <!-- /.tab-pane -->
