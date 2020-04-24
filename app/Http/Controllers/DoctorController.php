@@ -78,7 +78,7 @@ class DoctorController extends Controller
     //patient file activity
     public function patient_activity($patient_id){
         //dd($patient_id);
-        $patient_activities = Appointment::where('patient_id', $patient_id)->with('doctor')
+        $patient_activities = Appointment::where('patient_id', $patient_id)->where('doctor_id', Auth()->user()->id)->with('doctor')
                                 ->get();
          $doctor_activities = Patient::where('id', $patient_id)
          ->with('consultations')->with('priscriptions')->first();                       
