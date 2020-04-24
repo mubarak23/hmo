@@ -64,6 +64,12 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
         'as'  => 'doctor.add_priscription'
     ]);
 
+    Route::get('/priscription/{doctor_id}', [
+        'uses' => 'DoctorController@doctor_description',
+        'as' => 'doctor.priscription'
+    ]);
+
+
 
     
 

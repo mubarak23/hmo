@@ -87,7 +87,7 @@ class DoctorController extends Controller
          ->with('consultations')->with('priscriptions')->first();                       
          $drugs =Drug::all();                    
         //collect data i.e patient details, appointment, priscription and consultation
-
+        //return $doctor_activities;
         return view('dashboard.patient.activity',
          ['patient_activities' => $patient_activities, 
          'doctor_activities' => $doctor_activities,
@@ -120,6 +120,11 @@ class DoctorController extends Controller
             return redirect()->back();
     }
 
+    public function doctor_description(Consultation $doctor_id){
+        return $doctor_id;
+    }
+
+    
     
 
     
