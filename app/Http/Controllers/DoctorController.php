@@ -6,6 +6,7 @@ use App\Consultation;
 use App\Doctor;
 use App\Drug;
 use App\Patient;
+use App\Priscription;
 use App\Disease;
 use App\User;
 use APP\Test;
@@ -107,8 +108,16 @@ class DoctorController extends Controller
 
     }
 
-    public function add_priscription(Request $request){
-            dd($request->all());
+    public function add_priscription(){ 
+            Priscription::create(request()->validate([
+                'patient_id' => 'required',
+                'doctor_id' => 'required',
+                'symptoms' => 'required',
+                'drugs' => 'required',
+                'period'  => 'required',
+                'status' => 'required'
+            ]));
+            return redirect()->back();
     }
 
     

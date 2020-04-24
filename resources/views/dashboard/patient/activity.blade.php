@@ -91,20 +91,39 @@
             </div>
             
             <div class="modal-body">
+
               <div class="form-group">
+              <label>Select Drugs</label>
               <select name="drugs" class="custom-select" multiple data-live-search="true">
               @foreach($drugs as $drug)
               <option value={{$drug->name}} class="form-input"> {{$drug->name}} </option>
               @endforeach
               </select>
               </div>
+
+              <div class="form-group">
+                  <label>Symptoms</label>
+                  <textarea class="form-control" name="symptoms" rows="3"
+                  placeholder="Symptoms"></textarea>
+                </div>
+
+                <div class="form-group">
+                <label>Intake Period</label>
+                <input type="text" name="period" />
+                </div>
+
               <div class="form-group">
               <input type="hidden" name="patient_id" value={{$doctor_activities->id}} />
+              </div
+
+              <div class="form-group">
+              <input type="hidden" name="status" value=1 />
               </div>
               <div class="form-group">
               <input type="hidden" name="doctor_id" value={{Auth()->user()->id}} />
-              </div> 
-            </div>
+              </div>
+
+            
             <div class="modal-footer justify-content-between">
             {{ csrf_field() }}
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
