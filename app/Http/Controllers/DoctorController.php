@@ -105,6 +105,10 @@ class DoctorController extends Controller
 
     }
 
+    public function add_priscription(Request $request){
+            dd($request->all());
+    }
+
     
 
     

@@ -58,7 +58,12 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
         'uses' => 'DoctorController@add_consutation',
         'as'  => 'doctor.add_consultation'
     ]);
-    
+
+    Route::post('/priscription', [
+        'uses' => 'DoctorController@add_priscription',
+        'as'  => 'doctor.add_priscription'
+    ]);
+
 
     
 
