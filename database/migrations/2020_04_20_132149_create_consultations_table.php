@@ -16,6 +16,7 @@ class CreateConsultationsTable extends Migration
         Schema::create('consultations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('patient_id');
+            $table->string('doctor_id');
             $table->string('symptoms')->nullable();
             $table->string('next_appt_date')->nullable();
             $table->boolean('test_status')->nullable();

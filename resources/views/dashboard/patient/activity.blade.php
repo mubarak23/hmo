@@ -46,7 +46,7 @@
             <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">About Me</h3>
+                <h3 class="card-title">About Patient</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -98,8 +98,58 @@
                   <td>{{ $appointment->id}}</td>
                   <td>{{ $appointment->doctor->name}}</td>
                   <td>{{ $appointment->appt_time}}</td>
-                  <td><a href="#"><button class="btn btn-primary btn-sm">
-                  Add consultation Remark</button></a></td>
+                  <td><button class="btn btn-primary btn-sm"
+                   data-toggle="modal"  data-target="#add_consultation-{{ $appointment->doctor->id }}">
+                   Add Consultation Remark</button></td>
+                   <div class="modal fade" id="add_consultation-{{ $appointment->doctor->id }}">
+                    <div class="modal-dialog modal-sm">
+                    <form action="{{ route('admin.assign_role') }}" method="post">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Consultation Remark</h4>
+                          
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                        <div class="form-group">
+                          <input type="hidden" name="doctor_id" value={{ $appointment->doctor->id }} />
+                        </div>
+                        <div class="form-group">
+                          <input type="hidden" name="patient_id" value={{$doctor_activities->id}} />
+                        </div>
+                        <div class="form-group">
+                        <label>Remark</label>
+                        <textarea class="form-control" name="symptoms" rows="3"
+                         placeholder="Enter Consultation Remake /Symptoms"></textarea>
+                        </div>
+                        <div class="form-group">
+                  <label>Next Appointment Date:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" name="next_appt_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                          
+                        </div>
+                        
+                        <div class="modal-footer justify-content-between">
+                        {{ csrf_field() }}
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Add Remark</button>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    </form>
+                    <!-- /.modal-dialog -->
+                  </div>
+                  <!-- /.modal -->
+                  
                   </tr>
                   @endforeach
               </table>
