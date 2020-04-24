@@ -264,9 +264,13 @@
                           <div class="timeline-body">
                             {{ $consultation->symptoms}}
                           </div>
-                          <div class="timeline-footer">
+                          <div class="timeline-header">
                             <p class="timeline-header"><b>Next Appointment Date</b></p>
                             {{ $consultation->next_appt_date}}
+                          </div>
+                          <div class="timeline-header">
+                            <p class="timeline-header"><b>Test Status</b></p>
+                            {{ $consultation->test_status}}
                           </div>
                         </div>
                       </div>

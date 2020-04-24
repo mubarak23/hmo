@@ -120,8 +120,9 @@ class DoctorController extends Controller
             return redirect()->back();
     }
 
-    public function doctor_description(Consultation $doctor_id){
-        return $doctor_id;
+    public function doctor_priscription($doctor_id){
+        $doctor_priscriptions = Priscription::where('docotr_id', $doctor_id)->get();
+        return view('dashboard.doctor.disease', ['doctor_priscriptions' => $doctor_priscriptions]);
     }
 
     
