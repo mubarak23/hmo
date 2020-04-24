@@ -103,7 +103,7 @@
                    Add Consultation Remark</button></td>
                    <div class="modal fade" id="add_consultation-{{ $appointment->doctor->id }}">
                     <div class="modal-dialog modal-sm">
-                    <form action="{{ route('admin.assign_role') }}" method="post">
+                    <form action="{{ route('doctor.add_consultation') }}" method="post">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h4 class="modal-title">Consultation Remark</h4>
@@ -136,13 +136,13 @@
                       <div class="form-group">
                       <div class="icheck-primary d-inline">
                       <label>Test Status </label>
-                        <input type="radio" id="male" name="test_status" value="true" >
+                        <input type="radio" id="male" name="test_status" value="1" >
                         <label for="radioPrimary1">
                         Yes
                         </label>
                       </div>
                       <div class="icheck-primary d-inline">
-                        <input type="radio" id="female" name="test_status" value="no">
+                        <input type="radio" id="female" name="test_status" value="0">
                         <label for="radioPrimary2">
                         No
                         </label>

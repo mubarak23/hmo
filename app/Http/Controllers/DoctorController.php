@@ -93,6 +93,7 @@ class DoctorController extends Controller
 
 
     public function add_consutation(){
+        //dd($request->all());
         Consultation::create(request()->validate([
             'patient_id' => 'required',
             'doctor_id' => 'required',
@@ -100,7 +101,7 @@ class DoctorController extends Controller
             'next_appt_date' => 'required',
             'test_status'  => 'required'
         ]));
-        return redirect()->route('patient_activity/{requeest("patient_id")}');
+        return redirect()->back();
 
     }
 
