@@ -14,7 +14,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('doctor.index')}}">Home</a></li>
               <li class="breadcrumb-item active">Priscriptions</li>
             </ol>
           </div>
@@ -39,6 +39,7 @@
                   <th>Symptoms</th>
                   <th>Drugs</th>
                   <th>Period Durations</th>
+                  <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,8 @@
                   </td>
                   <td>{{ $priscription->drugs}}</td>
                   <td>{{ $priscription->period }}</td>
+                  <td><a href="{{ route('doctor.patient_activity', ['patient_id' => $priscription->patient->id ]) }}"><button class="btn btn-primary btn-sm">
+                  View Patient File</button></a></td>
                   </tr>
                 @empty
                   <p>No Priscriptions Issues</p>

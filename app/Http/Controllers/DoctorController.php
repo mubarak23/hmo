@@ -120,6 +120,7 @@ class DoctorController extends Controller
             return redirect()->back();
     }
 
+    //list of priscription for a particular doctor
     public function doctor_priscription($doctor_id){
         $doctor_priscriptions = Priscription::where('doctor_id', $doctor_id)->with('patient')->get();
          //return $doctor_priscriptions;   
