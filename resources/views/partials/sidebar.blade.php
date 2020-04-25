@@ -225,7 +225,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('nurse.admission_list')}}" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Admission of Patients

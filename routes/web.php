@@ -104,7 +104,13 @@ Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
         'uses' => 'NurseController@admit_patient',
         'as' => 'nurse.admit_patient'
     ]);
-    
+
+    Route::get('/admission_list', [
+        'uses' => 'NurseController@admission_lists',
+        'as' => 'nurse.admission_list'
+    ]);
+
+
 
 });
 

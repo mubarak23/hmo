@@ -140,6 +140,14 @@ class NurseController extends Controller
         return redirect()->back();
     }
 
+
+    public function admission_lists(){
+        $admission_lists = Admission::take(50)->latest()->with('patient')
+        ->with('nurse')->with('doctor')->get();
+        //return $admission_lists;
+        return view('dashboard.nurse.admission_list', ['admission_lists' => $admission_lists ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
