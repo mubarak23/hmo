@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Admission extends Model
 {
     //
-    protected $fillable = ['ptient_id', 'doctor_id', 'nurse_id', 'ward_name', 'bed_number', 'discharge_status'];
+    protected $fillable = ['patient_id', 'doctor_id', 'nurse_id', 'ward_name', 'ward_type', 'bed_number', 'discharge_status'];
 
     
     public function patient()

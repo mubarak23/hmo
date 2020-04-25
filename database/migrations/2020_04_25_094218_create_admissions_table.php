@@ -21,6 +21,7 @@ class CreateAdmissionsTable extends Migration
             $table->string('ward_name');
             $table->string('ward_type')->nullable();
             $table->string('bed_number');
+            $table->string('discharge_status')->nullable();
             $table->timestamps();
         });
     }

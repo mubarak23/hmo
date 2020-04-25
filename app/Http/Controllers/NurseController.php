@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
+use App\Admission;
 use App\Nurse;
 use App\Patient;
 use App\Doctor;
@@ -118,7 +120,24 @@ class NurseController extends Controller
 
 
     public function admit_patient(Request $request){
-        dd($request->all());
+        
+        $data = $request->all();
+        $doctor = Appointment::where('patient_id', $data['patient_id'])
+        ->select('doctor_id')->first();
+        $data['doctor_id'] = $doctor->doctor_id;
+        $data['discharge_status'] = '0';
+        //return $data;
+        $admit_to_ward = New Admission([
+            'patient_id' => $data['patient_id'],
+            'doctor_id' => $data['doctor_id'],
+            'ward_name' => $data['ward_name'],
+            'ward_type' => $data['ward_type'],
+            'bed_number' => $data['bed_number'],
+            'nurse_id' => $data['nurse_id'],
+            'discharge_status' => 0
+        ]);
+        $admit_to_ward->save();
+        return redirect()->back();
     }
 
     /**
