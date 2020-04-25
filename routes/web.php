@@ -100,6 +100,12 @@ Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
         'as' => 'nurse.patient_data'
     ]);
 
+    Route::post('/admit_patient', [
+        'uses' => 'NurseController@admit_patient',
+        'as' => 'nurse.admit_patient'
+    ]);
+    
+
 });
 
 Route::group(['prefix' => 'receptionist', 'middleware' => ['receptionist']], function(){

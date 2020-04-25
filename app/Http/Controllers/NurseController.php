@@ -116,6 +116,11 @@ class NurseController extends Controller
         return view('dashboard.nurse.patient_data', ['patient_data' => $patients_data]);
     }
 
+
+    public function admit_patient(Request $request){
+        dd($request->all());
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

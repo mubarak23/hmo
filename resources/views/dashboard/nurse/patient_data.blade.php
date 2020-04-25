@@ -56,12 +56,68 @@
                   <td><a href="{{ route('doctor.patient_activity', ['patient_id' => $data->id ]) }}"><button class="btn btn-primary btn-sm">
                   View Patient File</button></a></td>
                   </td>
-                     <td><a href="#"><button class="btn btn-primary btn-sm">
+                  <td><a href="#add_priscription" data-toggle="modal" 
+                      data-target="#admit_ward-{{ $data->id }}">
+                      <button class="btn btn-primary btn-sm">
                   Admit Patient to Ward</button></a></td>
-                  </td>
+            <div class="modal fade" id="admit_ward-{{ $data->id }}">
+            <div class="modal-dialog modal-sm">
+            <form action="{{ route('nurse.admit_patient') }}" method="post">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Admit Patient to Ward</h4> 
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                
+                <div class="modal-body">
+                  <div class="form-group">
+                  <label>Ward Name</label>
+                  <input class="form-control" type="text"
+                   placeholder="Enter Ward Name" name="ward_name" />
+                  </div>
+                    <div class="form-group">
+                    <label>Ward Type</label>
+                    <select class="form-control" name="ward_type">
+                    <option value="male" class="form-input"> Male </option> 
+                    <option value="female" class="form-input"> Female </option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label>Bed Number</label>
+                  <input type="number" name="bed_number" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                  <input type="hidden" name="nurse_id" value={{Auth()->user()->id}} />
+                  </div>
+                  
+                  <div class="form-group">
+                  <input type="hidden" name="patient_id" value={{ $data->id }} />
+                  </div>
+                    <div class="modal-footer justify-content-between">
+                    {{ csrf_field() }}
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                </form>
+                <!-- /.modal-dialog -->
+              </div>
+              <!-- /.modal -->
+
+
+
+
+
+
+
+
                   </tr>
                 @empty
-                  <p>No Priscriptions Issues</p>
+                  <p>No Patent Data Yet on the System</p>
                    
                 @endforelse             
                 </tbody>
