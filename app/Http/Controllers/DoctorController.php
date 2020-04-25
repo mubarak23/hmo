@@ -26,8 +26,13 @@ class DoctorController extends Controller
         //dd(Auth::user()->id);
         $user_id =  Auth::user()->id;
         $doctor = Doctor::where('user_id', $user_id)->first();
+        if(!$doctor){
+            return dd('You will need to update your profile before login');
+        }
+
         $appointments = Appointment::where('doctor_id', $doctor->user_id)
         ->with('doctor')->with('patient')->get();
+        //return $doctor->user_id;
         return view('dashboard.main_doctor', ['appointments' => $appointments]);
     }
 
@@ -81,13 +86,14 @@ class DoctorController extends Controller
     //patient file activity
     public function patient_activity($patient_id){
         //dd($patient_id);
+        //dd(Auth()->user()->id);
         $patient_activities = Appointment::where('patient_id', $patient_id)->where('doctor_id', Auth()->user()->id)->with('doctor')
                                 ->get();
          $doctor_activities = Patient::where('id', $patient_id)
          ->with('consultations')->with('priscriptions')->first();                       
          $drugs =Drug::all();                    
         //collect data i.e patient details, appointment, priscription and consultation
-        //return $doctor_activities;
+       
         return view('dashboard.patient.activity',
          ['patient_activities' => $patient_activities, 
          'doctor_activities' => $doctor_activities,

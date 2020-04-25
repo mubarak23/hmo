@@ -136,7 +136,7 @@
                       <div class="form-group">
                       <select class="form-control" name="doctor_id">
                       @foreach($doctors as $doctor)
-                      <option value={{$doctor->id}} class="form-input"> {{$doctor->name}} </option>
+                      <option value={{$doctor->user_id}} class="form-input"> {{$doctor->name}} </option>
                       @endforeach
                       </select>
                       </div>
