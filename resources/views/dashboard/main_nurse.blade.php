@@ -19,7 +19,7 @@
               >Update Profile</a></li>
             <div class="modal fade" id="update_profile-{{ Auth()->user()->id }}">
             <div class="modal-dialog modal-sm">
-            <form action="{{ route('doctor.add_priscription') }}" method="post">
+            <form action="{{ route('nurse.update') }}" method="post">
               <div class="modal-content">
                 <div class="modal-header">
                   <h4 class="modal-title">Update Profile</h4> 
@@ -40,6 +40,9 @@
                   <div class="form-group">
                   <input type="hidden" name="user_id" value={{Auth()->user()->id}} />
                   </div>
+                  <div class="form-group">
+                  <input type="hidden" name="name" value={{Auth()->user()->name}} />
+                  </div>
                     <div class="modal-footer justify-content-between">
                     {{ csrf_field() }}
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -52,26 +55,6 @@
                 <!-- /.modal-dialog -->
               </div>
               <!-- /.modal -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             </ol>
           </div><!-- /.col -->

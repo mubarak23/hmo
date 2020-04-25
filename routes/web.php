@@ -90,6 +90,10 @@ Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
         'uses' => 'NurseController@store',
         'as' => 'nurse.store'
     ]);
+    Route::post('/update_profile', [
+        'uses' => 'NurseController@update_profile',
+        'as' => 'nurse.update'
+    ]);
 
 });
 

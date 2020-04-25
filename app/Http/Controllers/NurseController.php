@@ -99,9 +99,15 @@ class NurseController extends Controller
      * @param  \App\Nurse  $nurse
      * @return \Illuminate\Http\Response
      */
-    public function show(Nurse $nurse)
-    {
-        //
+    public function update_profile(){
+        dd(request());
+        Nurse::create(request()->validate([
+            'user_id' => 'required',
+            'name' => 'required',
+            'field_study' =>'required',
+            'off_days' => 'required'
+        ]));
+        return redirect()->back();
     }
 
     /**
