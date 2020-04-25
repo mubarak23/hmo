@@ -24,8 +24,11 @@ class Admission extends Model
     
     public function nurse()
     {
-        return $this->belongsTo(Nurse::class, 'nurse_id');
+        return $this->belongsTo(Nurse::class, 'nurse_id', 'user_id');
     }
+    
+    
+   
     
     
     

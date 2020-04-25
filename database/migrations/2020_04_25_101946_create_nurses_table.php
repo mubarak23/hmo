@@ -17,7 +17,7 @@ class CreateNursesTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('name');
-            $table->string('field_study')->nullabl();
+            $table->string('field_study')->nullable();
             $table->string('off_days')->nullable();
             $table->timestamps();
         });
