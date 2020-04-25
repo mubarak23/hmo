@@ -260,7 +260,7 @@
                         <i class="fas fa-envelope bg-primary"></i>
                         <div class="timeline-item">
                           <h3 class="timeline-header">
-                          Symptoms</h3>
+                          Remark</h3>
                           <div class="timeline-body">
                             {{ $consultation->symptoms}}
                           </div>
@@ -315,7 +315,7 @@
                       </div>
                       <!-- END timeline item -->
                       @empty
-                      <p>No Consultation details</p>
+                      <p>No Priscription details</p>
                       @endforelse
                       
                       
