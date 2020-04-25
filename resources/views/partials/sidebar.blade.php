@@ -169,7 +169,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('doctor.admission_list') }}"" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Admission of Patients
@@ -179,7 +179,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Appiontments</p>
                 </a>

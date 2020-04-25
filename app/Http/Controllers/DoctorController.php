@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use App\Admission;
 use App\Consultation;
 use App\Doctor;
 use App\Drug;
@@ -132,6 +133,16 @@ class DoctorController extends Controller
          //return $doctor_priscriptions;   
         return view('dashboard.doctor.priscription',
          ['doctor_priscriptions' => $doctor_priscriptions]);
+    }
+
+
+
+
+    public function admission_lists(){
+        $admission_lists = Admission::take(50)->latest()->with('patient')
+        ->with('nurse')->with('doctor')->get();
+        //return $admission_lists;
+        return view('dashboard.doctor.admission_list', ['admission_lists' => $admission_lists ]);
     }
 
     

@@ -69,6 +69,12 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
         'as' => 'doctor.priscription'
     ]);
 
+    Route::get('/admission_list', [
+        'uses' => 'DoctorController@admission_lists',
+        'as' => 'doctor.admission_list'
+    ]);
+
+
 
 
     
