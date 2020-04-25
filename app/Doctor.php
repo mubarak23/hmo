@@ -17,6 +17,11 @@ class Doctor extends Model
 
     
     
+    public function admissions()
+    {
+        return $this->hasMany(Admission::class, 'admission_id', 'id');
+    }
+
     
     
 

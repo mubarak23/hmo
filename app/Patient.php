@@ -26,6 +26,13 @@ class Patient extends Model
      }
 
      
+     public function admissions()
+     {
+         return $this->hasMany(Admission::class, 'admission_id', 'id');
+     }
+     
+
+     
      public function priscriptions()
      {
          return $this->hasMany(Priscription::class, 'patient_id', 'id');
