@@ -95,6 +95,11 @@ Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
         'as' => 'nurse.update'
     ]);
 
+    Route::get('/patient_data', [
+        'uses' => 'NurseController@patients_data',
+        'as' => 'nurse.patient_data'
+    ]);
+
 });
 
 Route::group(['prefix' => 'receptionist', 'middleware' => ['receptionist']], function(){

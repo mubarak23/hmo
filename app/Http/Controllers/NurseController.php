@@ -100,7 +100,7 @@ class NurseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update_profile(){
-        dd(request());
+        
         Nurse::create(request()->validate([
             'user_id' => 'required',
             'name' => 'required',
@@ -108,6 +108,12 @@ class NurseController extends Controller
             'off_days' => 'required'
         ]));
         return redirect()->back();
+    }
+
+
+    public function patients_data(){
+        $patients_data = Patient::paginate(10);
+        return view('dashboard.nurse.patient_data', ['patient_data' => $patients_data]);
     }
 
     /**
