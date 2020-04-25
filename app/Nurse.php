@@ -9,7 +9,7 @@ class Nurse extends Model
     //
 
     
-    public function admission()
+    public function admissions()
     {
         return $this->hasMany(Admission::class, 'admission_id', 'id');
     }

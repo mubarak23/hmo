@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdmissionsTable extends Migration
+class CreateNursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateAdmissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admissions', function (Blueprint $table) {
+        Schema::create('nurses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('patient_id');
-            $table->string('doctor_id');
-            $table->string('nurse_id')->nullable();
-            $table->string('ward_name');
-            $table->string('ward_type')->nullable();
-            $table->string('bed_number');
+            $table->string('user_id');
+            $table->string('name');
+            $table->string('field_study')->nullabl();
+            $table->string('off_days')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateAdmissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admissions');
+        Schema::dropIfExists('nurses');
     }
 }
