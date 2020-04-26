@@ -59,18 +59,14 @@
                      id="middlename" placeholder="Middle Name">
                   </div>
 
-                  <div class="form-group">
-                    <label for="profile_pic">Profile Picture</label>
+                  
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="profile_pic" id="profile_pic">
-                        <label class="custom-file-label" for="profile_pic">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
+                         <label for="profile_image" class="col-md-4">Profile Image</label>
+                        <input id="profile_image" type="file" class="form-control" name="profile_pic">
                       </div>
                     </div>
-                  </div>
+                  
 
                   <div class="form-group clearfix">
                       <div class="icheck-primary d-inline">

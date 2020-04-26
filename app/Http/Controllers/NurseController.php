@@ -42,7 +42,7 @@ class NurseController extends Controller
     public function store(Request $request)
     {
         //
-
+        //return $request->all();
         //dd($request->all());
         $this->validate($request, [
             "first_name" => "required",
@@ -56,6 +56,7 @@ class NurseController extends Controller
             "address" => "required",
         ]);
         if($file = $request->file('profile_pic')){
+            return $request->file('profile_pic');
             $name = time().time(). '.'.$file->getClientOriginalExtension();
             $target_path = public_path('/uploads');
             if($file->move($target_path, $name)){
