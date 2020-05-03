@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('doctor.index')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('nurse.index')}}">Home</a></li>
               <li class="breadcrumb-item active">Patient File Activity</li>
             </ol>
           </div>
@@ -90,7 +90,6 @@
                   <th>id</th>
                   <th>Doctor Name </th>
                   <th>Appt. Time</th>
-                  <th>Action</th>
                 </tr>
                 <tr>
                 @foreach($patient_activities as $appointment)

@@ -38,7 +38,7 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
         'uses' => 'DoctorController@doctor_update',
         'as' => 'doctor.onboarding'
     ]);
-    
+
     Route::post('/', [
         'uses' => 'DoctorController@updateprofile',
         'as' => 'doctor.update'
@@ -120,6 +120,11 @@ Route::group(['prefix' => 'nurse', 'middleware' => ['nurse']], function(){
     Route::get('/admission_list', [
         'uses' => 'NurseController@admission_lists',
         'as' => 'nurse.admission_list'
+    ]);
+
+    Route::get('/patient_file/{patient_id}', [
+        'uses' => 'NurseController@patient_file',
+        'as' => 'nurse.patient_file'
     ]);
 
 

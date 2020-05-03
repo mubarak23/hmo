@@ -14,7 +14,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('doctor.index')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('nurse.index')}}">Home</a></li>
               <li class="breadcrumb-item active">Patients Admitted in Ward</li>
             </ol>
           </div>
@@ -60,7 +60,7 @@
                   </td>
                   <td>{{ $data->nurse->name}}</td>
                   <td>{{ $data->discharge_status}}</td>
-                  <td><a href="{{ route('doctor.patient_activity', ['patient_id' => $data->id ]) }}"><button class="btn btn-primary btn-sm">
+                  <td><a href="{{ route('nurse.patient_file', ['patient_id' => $data->id ]) }}"><button class="btn btn-primary btn-sm">
                   View Patient File</button></a></td>
                   </td>
                   </tr>

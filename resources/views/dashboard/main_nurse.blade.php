@@ -211,7 +211,7 @@
               <!-- /.modal -->
                   </div>
                   <div class="btn-group">
-                  <a href="{{ route('doctor.patient_activity', ['patient_id' => $data->id ]) }}"><button class="btn btn-primary btn-sm">
+                  <a href="{{ route('nurse.patient_file', ['patient_id' => $data->id ]) }}"><button class="btn btn-primary btn-sm">
                   View Patient File</button></a>
                   </div>
                    
