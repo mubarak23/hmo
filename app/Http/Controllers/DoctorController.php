@@ -29,12 +29,17 @@ class DoctorController extends Controller
         $doctor = Doctor::where('user_id', $user_id)->first();
         if(!$doctor){
             return dd('You will need to update your profile before login');
+            return view('dashboard.doctor.update', $user_id);
         }
 
         $appointments = Appointment::where('doctor_id', $doctor->user_id)
         ->with('doctor')->with('patient')->get();
         //return $doctor->user_id;
         return view('dashboard.main_doctor', ['appointments' => $appointments]);
+    }
+
+    public function doctor_update(){
+        
     }
 
 

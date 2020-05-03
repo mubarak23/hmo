@@ -33,6 +33,12 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['doctor'] ], function(){
         'uses' => 'DoctorController@index',
         'as' => 'doctor.index'
     ]);
+
+    Route::post('/doctor_update', [
+        'uses' => 'DoctorController@doctor_update',
+        'as' => 'doctor.onboarding'
+    ]);
+    
     Route::post('/', [
         'uses' => 'DoctorController@updateprofile',
         'as' => 'doctor.update'
