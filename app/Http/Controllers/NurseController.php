@@ -149,6 +149,25 @@ class NurseController extends Controller
         return view('dashboard.nurse.admission_list', ['admission_lists' => $admission_lists ]);
     }
 
+
+    //patient file activity
+    public function patient_activity($patient_id){
+        //dd($patient_id);
+        //dd(Auth()->user()->id);
+        $patient_activities = Appointment::where('patient_id', $patient_id)->where('doctor_id', Auth()->user()->id)->with('doctor')
+                                ->get();
+         $doctor_activities = Patient::where('id', $patient_id)
+         ->with('consultations')->with('priscriptions')->first();                       
+         $drugs =Drug::all();                    
+        //collect data i.e patient details, appointment, priscription and consultation
+       
+        return view('dashboard.nurse.patient_file',
+         ['patient_activities' => $patient_activities, 
+         'doctor_activities' => $doctor_activities,
+         'drugs' => $drugs]);
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
