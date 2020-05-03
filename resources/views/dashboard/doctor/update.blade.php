@@ -12,10 +12,9 @@
 
       <form action="{{ route('doctor.onboarding') }}"  method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="name" placeholder="Full name">
           <div class="input-group-append">
-            <input type="hidden" name="name" value={{ $user_id->name }} >
-            <input type="hidden" name="user_id" value={{ $user_id->id }}>
+            <input type="hidden" name="name" value={{ $user_data->name }} >
+            <input type="hidden" name="user_id" value={{ $user_data->id }}>
           </div>
         </div>
         <div class="input-group mb-3">
@@ -35,7 +34,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" name="	consultation_hours" class="form-control" placeholder="Consultation Hours">
+          <input type="text" name="consultation_hours" class="form-control" placeholder="Consultation Hours">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

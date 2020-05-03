@@ -26,10 +26,12 @@ class DoctorController extends Controller
         //
         //dd(Auth::user()->id);
         $user_id =  Auth::user()->id;
+        $user_data = User::where('id', $user_id)->select('id', 'name')->first();
         $doctor = Doctor::where('user_id', $user_id)->first();
         if(!$doctor){
-            return dd('You will need to update your profile before login');
-            return view('dashboard.doctor.update', $user_id);
+            //return dd('You will need to update your profile before login');
+            //return $user_data;
+            return view('dashboard.doctor.update', ['user_data' => $user_data]);
         }
 
         $appointments = Appointment::where('doctor_id', $doctor->user_id)
@@ -39,7 +41,16 @@ class DoctorController extends Controller
     }
 
     public function doctor_update(){
-        
+        //return request();
+        Doctor::create(request()->validate([
+                'name' => 'required',
+                'consultation_hours' => 'required',
+                'office_no' => 'required',
+                'specialist' => 'required',
+                'user_id' => 'required'            
+        ]));
+        return redirect()->route('doctor.index');
+
     }
 
 
