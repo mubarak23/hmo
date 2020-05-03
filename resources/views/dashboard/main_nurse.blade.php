@@ -209,22 +209,10 @@
                 <!-- /.modal-dialog -->
               </div>
               <!-- /.modal -->
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
                   </div>
                   <div class="btn-group">
-                       <button class="btn btn-primary btn-sm">View Patient File</button>
+                  <a href="{{ route('doctor.patient_activity', ['patient_id' => $data->id ]) }}"><button class="btn btn-primary btn-sm">
+                  View Patient File</button></a>
                   </div>
                    
                   </td>
