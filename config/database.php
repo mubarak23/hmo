@@ -14,12 +14,12 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    //'default' => env('DB_CONNECTION', 'pgsql'),
 
-    //'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
     //postgres://bvckckcmwobgfp:ec02cca7c9780525a073ca8b4c5a1352c3d9711c34aba34d85b983b6f16e9e08@ec2-18-233-207-22.compute-1.amazonaws.com:5432/df71stum6580r6
-    $DATABASE_URL = parse_url('postgres://bvckckcmwobgfp:ec02cca7c9780525a073ca8b4c5a1352c3d9711c34aba34d85b98
-    3b6f16e9e08@ec2-18-233-207-22.compute-1.amazonaws.com:5432/df71stum6580r6'),
+    //$DATABASE_URL = parse_url('postgres://bvckckcmwobgfp:ec02cca7c9780525a073ca8b4c5a1352c3d9711c34aba34d85b98
+    //3b6f16e9e08@ec2-18-233-207-22.compute-1.amazonaws.com:5432/df71stum6580r6'),
 
 
     /*
