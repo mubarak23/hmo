@@ -12,6 +12,15 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+                 <li class="breadcrumb-item">
+                    <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                    >Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                </li>
               <li class="breadcrumb-item"><a href="{{ route('doctor.index')}}">Home</a></li>
               <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
@@ -119,12 +128,12 @@
                 </tr>
               </table>
             </div>
-            
+
           </div>
           <!-- /.box -->
 
 
-        </div> 
+        </div>
 
         <div class="col-md-6">
 
@@ -184,13 +193,13 @@
               </table>
             </div>
             <!-- /.box-body -->
-            
+
           </div>
           <!-- /.box -->
 
         </div>
 
-        
+
 
       </div>
       </section>
@@ -254,7 +263,7 @@
               </table>
             </div>
             <!-- /.box-body -->
-            
+
           </div>
           <!-- /.box -->
 
@@ -318,7 +327,7 @@
               </table>
             </div>
             <!-- /.box-body -->
-            
+
           </div>
           <!-- /.box -->
 
@@ -330,4 +339,3 @@
 
 
 
-     

@@ -12,9 +12,18 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                    >Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                </li>
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active"><a 
-              href="#add_priscription" 
+              <li class="breadcrumb-item active"><a
+              href="#add_priscription"
                   data-toggle="modal"  data-target="#update_profile-{{ Auth()->user()->id }}"
               >Update Profile</a></li>
             <div class="modal fade" id="update_profile-{{ Auth()->user()->id }}">
@@ -22,12 +31,12 @@
             <form action="{{ route('nurse.update') }}" method="post">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title">Update Profile</h4> 
+                  <h4 class="modal-title">Update Profile</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                
+
                 <div class="modal-body">
                   <div class="form-group">
                   <label>Field Of Study</label>
@@ -126,7 +135,7 @@
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
-          </div> 
+          </div>
           <!-- ./col -->
         </div>
         <!-- /.row -->
@@ -161,19 +170,19 @@
                   <td>
                   <div class="btn-group">
                   <button class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#make_appointment-{{ $data->id }}">Make Appointment</button>
-                
+
                 <div class="modal fade" id="make_appointment-{{ $data->id }}">
                 <div class="modal-dialog modal-sm">
                 <form action="{{ route('appointment.post') }}" method="post">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h4 class="modal-title">Make Appointment</h4>
-                      
+
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    
+
                     <div class="modal-body">
                       <div class="form-group">
                       <select class="form-control" name="doctor_id">
@@ -191,12 +200,12 @@
                        <div class="form-group">
                     <label>Remark</label>
                     <textarea class="form-control" name="remark" rows="3" placeholder="Enter A Remark"></textarea>
-                    
-                    </div>     
 
-                      
                     </div>
-                    
+
+
+                    </div>
+
                     <div class="modal-footer justify-content-between">
                     {{ csrf_field() }}
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -214,19 +223,19 @@
                   <a href="{{ route('nurse.patient_file', ['patient_id' => $data->id ]) }}"><button class="btn btn-primary btn-sm">
                   View Patient File</button></a>
                   </div>
-                   
+
                   </td>
                 </tr>
                 @endforeach
               </table>
             </div>
             <!-- /.box-body -->
-            
+
           </div>
           <!-- /.box -->
 
 
-        </div> 
+        </div>
 
         <div class="col-md-6">
 
@@ -286,13 +295,13 @@
               </table>
             </div>
             <!-- /.box-body -->
-            
+
           </div>
           <!-- /.box -->
 
         </div>
 
-        
+
 
       </div>
       </section>
@@ -356,7 +365,7 @@
               </table>
             </div>
             <!-- /.box-body -->
-            
+
           </div>
           <!-- /.box -->
 
@@ -419,7 +428,7 @@
               </table>
             </div>
             <!-- /.box-body -->
-            
+
           </div>
           <!-- /.box -->
 
