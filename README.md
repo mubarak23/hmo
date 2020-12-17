@@ -6,3 +6,7 @@
     4. User Base Role
     5. View Invoice for patient
     6.
+
+sample login details for user role of a nurse
+username: mary@gmail.com
+passwoed: 3b3b3b3b
